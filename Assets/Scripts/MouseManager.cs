@@ -12,6 +12,7 @@ public class MouseManager : MonoBehaviour
     private Camera mainCamera;
 
     private GameObject selectedObject;
+    private GameObject outlineObject;
 
     Vector2 cursorPos;
 
@@ -48,7 +49,18 @@ public class MouseManager : MonoBehaviour
     {
         cursorPos = mainCamera.ScreenToWorldPoint(controls.Mouse.Position.ReadValue<Vector2>());
 
+        if(selectedObject != null)
+        {
+            DetectOutlineObject();
+        }
 
+        if (outlineObject != null)
+        {
+            if (outlineObject.GetComponent<OutlineObject>() != null)
+            {
+                outlineObject.GetComponent<OutlineObject>().setOutlined(true);
+            }
+        }
     }
 
     private void StartedClick()
@@ -79,12 +91,11 @@ public class MouseManager : MonoBehaviour
         {
             if (selectedObject.GetComponent<MovableObject>() != null)
             {
+                if(outlineObject != null)
+                {
+                    selectedObject.GetComponent<MovableObject>().setStay(true);
+                }
                 selectedObject.GetComponent<MovableObject>().setSelected(false);
-                selectedObject = null;
-            }
-            if (selectedObject.GetComponent<OutlineObject>() != null)
-            {
-                selectedObject.GetComponent<OutlineObject>().DisableOutline();
                 selectedObject = null;
             }
         }
@@ -103,10 +114,47 @@ public class MouseManager : MonoBehaviour
         RaycastHit2D hits2D = Physics2D.GetRayIntersection(ray);
         if(hits2D.collider != null)
         {
-            Debug.Log("Hit 2D collider " + hits2D.collider.tag);
-            selectedObject = hits2D.collider.gameObject;
+            //Debug.Log("Hit 2D collider " + hits2D.collider.tag);
+            if (hits2D.collider.gameObject.GetComponent<MovableObject>() != null)
+            {
+                selectedObject = hits2D.collider.gameObject;
+            }
         }
     }
+
+    private void DetectOutlineObject()
+    {
+        bool outlineObjectDetected = false;
+        Ray ray = mainCamera.ScreenPointToRay(controls.Mouse.Position.ReadValue<Vector2>());
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider != null)
+            {
+            }
+        }
+
+        RaycastHit2D[] hits2DAll = Physics2D.GetRayIntersectionAll(ray);
+        for(int i = 0; i < hits2DAll.Length; i++)
+        {
+            if(hits2DAll[i].collider != null)
+            {
+                if(hits2DAll[i].collider.tag == "OutlineObject")
+                {
+                    outlineObjectDetected = true;
+                    outlineObject = hits2DAll[i].collider.gameObject;
+                }
+            }
+        }
+
+        if (!outlineObjectDetected && outlineObject != null)
+        {
+            Debug.Log("Object null");
+            outlineObject.GetComponent<OutlineObject>().setOutlined(false);
+            outlineObject = null;
+        }
+    }
+
     private void ChangeCursor(Texture2D cursorType)
     {
         //Vector2 hotspot = new Vector2(cursorType.width / 2, cursorType.height / 2);

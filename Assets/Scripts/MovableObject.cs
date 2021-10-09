@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovableObject : MonoBehaviour
 {
     public bool selected = false;
+    public bool stay = false;
     public Vector3 originalPos;
     public float lerpValue = 0;
     public float lerpSpeed = 0.1f;
@@ -18,6 +19,17 @@ public class MovableObject : MonoBehaviour
     {
         selected = b;
     }
+
+    public bool getStay()
+    {
+        return stay;
+    }
+
+    public void setStay(bool b)
+    {
+        stay = b;
+    }
+
     private void Awake()
     {
     }
@@ -34,10 +46,15 @@ public class MovableObject : MonoBehaviour
         {
             FollowCursor();
         }
-        else if (Vector3.Distance(this.transform.position, originalPos) >= 0.1)
+        else if (!stay && Vector3.Distance(this.transform.position, originalPos) >= 0.1)
         {
             lerpValue += lerpSpeed * Time.deltaTime;
             ResetPosition();
+        }
+        else if (stay)
+        {
+            originalPos = this.transform.position;
+            stay = false;
         }
         else
         {

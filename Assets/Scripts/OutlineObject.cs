@@ -5,6 +5,16 @@ using UnityEngine;
 public class OutlineObject : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer outlineRenderer;
+    [SerializeField] private bool outlined = false;
+    public bool getOutlined()
+    {
+        return outlined;
+    }
+
+    public void setOutlined(bool new_Outlined)
+    {
+        outlined = new_Outlined;
+    }
 
     public void EnableOutline()
     {
@@ -25,5 +35,13 @@ public class OutlineObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (outlined)
+        {
+            EnableOutline();
+        }
+        else
+        {
+            DisableOutline();
+        }
     }
 }
