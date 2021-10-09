@@ -48,7 +48,7 @@
             ]
         },
         {
-            "name": "Movement",
+            "name": "Keyboard",
             "id": "37ea39b6-382f-4f2a-8c94-500c528a1dac",
             "actions": [
                 {
@@ -56,6 +56,14 @@
                     "type": "PassThrough",
                     "id": "efea1fa2-abee-4203-958d-de53707ec3a7",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "6f10c382-5e17-4034-bec8-bc00bc288096",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -170,6 +178,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "72c31e72-d706-4b47-bb45-4653dfc1f44a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

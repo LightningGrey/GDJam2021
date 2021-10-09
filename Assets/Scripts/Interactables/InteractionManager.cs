@@ -22,15 +22,9 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void CallEvent()
     {
-        
+        interactionEvent?.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

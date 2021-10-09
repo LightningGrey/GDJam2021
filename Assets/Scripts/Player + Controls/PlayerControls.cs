@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerControls : MonoBehaviour
 {
     private Controls _playerKbMove;
 
@@ -21,15 +21,20 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-
+        _playerKbMove.Keyboard.Interact.performed += ctx => Interact();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 moveInput = _playerKbMove.Movement.Move.ReadValue<Vector2>();
+        Vector2 moveInput = _playerKbMove.Keyboard.Move.ReadValue<Vector2>();
         _rb.velocity = moveInput * _speed;
 
+    }
+
+    void Interact()
+    {
+        InteractionManager.Instance.CallEvent();
     }
 
     void OnEnable()
