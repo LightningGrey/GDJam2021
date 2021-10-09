@@ -47,6 +47,8 @@ public class MouseManager : MonoBehaviour
     private void Update()
     {
         cursorPos = mainCamera.ScreenToWorldPoint(controls.Mouse.Position.ReadValue<Vector2>());
+
+
     }
 
     private void StartedClick()
@@ -55,7 +57,14 @@ public class MouseManager : MonoBehaviour
         DetectClick();
         if (selectedObject != null)
         {
-            selectedObject.GetComponent<MovableObject>().setSelected(true);
+            if (selectedObject.GetComponent<MovableObject>() != null)
+            {
+                selectedObject.GetComponent<MovableObject>().setSelected(true);
+            }
+            if (selectedObject.GetComponent<OutlineObject>() != null)
+            {
+                selectedObject.GetComponent<OutlineObject>().EnableOutline();
+            }
         }
         else
         {
@@ -68,8 +77,16 @@ public class MouseManager : MonoBehaviour
         ChangeCursor(cursor);
         if (selectedObject != null)
         {
-            selectedObject.GetComponent<MovableObject>().setSelected(false);
-            selectedObject = null;
+            if (selectedObject.GetComponent<MovableObject>() != null)
+            {
+                selectedObject.GetComponent<MovableObject>().setSelected(false);
+                selectedObject = null;
+            }
+            if (selectedObject.GetComponent<OutlineObject>() != null)
+            {
+                selectedObject.GetComponent<OutlineObject>().DisableOutline();
+                selectedObject = null;
+            }
         }
     }
 
