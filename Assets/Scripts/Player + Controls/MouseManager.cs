@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MouseManager : MonoBehaviour
 {
@@ -14,12 +15,24 @@ public class MouseManager : MonoBehaviour
     private GameObject selectedObject;
     private GameObject outlineObject;
 
-    Vector2 cursorPos;
+    Vector2 cursorScreenPos;
+    Vector2 cursorWorldPos;
 
     public static MouseManager Instance { get { return _instance; } }
-    public Vector2 getCursurPos()
+    public Vector2 getCursurPos(float type)
     {
-        return cursorPos;
+        if (type == 0)
+        {
+            return cursorScreenPos;
+        }
+        else if (type == 1)
+        {
+            return cursorWorldPos;
+        }
+        else
+        {
+            return Vector2.zero;
+        }
     }
     
     void Awake()
@@ -47,7 +60,8 @@ public class MouseManager : MonoBehaviour
 
     private void Update()
     {
-        cursorPos = mainCamera.ScreenToWorldPoint(controls.Mouse.Position.ReadValue<Vector2>());
+        cursorScreenPos = controls.Mouse.Position.ReadValue<Vector2>();
+        cursorWorldPos = mainCamera.ScreenToWorldPoint(controls.Mouse.Position.ReadValue<Vector2>());
 
         if(selectedObject != null)
         {
@@ -94,6 +108,8 @@ public class MouseManager : MonoBehaviour
                 if(outlineObject != null)
                 {
                     selectedObject.GetComponent<MovableObject>().setStay(true);
+                    outlineObject.GetComponent<OutlineObject>().setOutlined(false);
+                    outlineObject = null;
                 }
                 selectedObject.GetComponent<MovableObject>().setSelected(false);
                 selectedObject = null;
@@ -103,21 +119,40 @@ public class MouseManager : MonoBehaviour
 
     private void DetectClick()
     {
+        //World
         Ray ray = mainCamera.ScreenPointToRay(controls.Mouse.Position.ReadValue<Vector2>());
         RaycastHit hit;
-        if(Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))
         {
-            if(hit.collider != null)
+            if (hit.collider != null)
             {
             }
         }
         RaycastHit2D hits2D = Physics2D.GetRayIntersection(ray);
-        if(hits2D.collider != null)
+        if (hits2D.collider != null)
         {
             //Debug.Log("Hit 2D collider " + hits2D.collider.tag);
             if (hits2D.collider.gameObject.GetComponent<MovableObject>() != null)
             {
                 selectedObject = hits2D.collider.gameObject;
+            }
+        }
+
+        //UI
+        PointerEventData pointerData = new PointerEventData(EventSystem.current);
+        
+        pointerData.position = cursorScreenPos;
+        
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+        
+        if (results.Count > 0)
+        {
+            Debug.Log(results[0].gameObject.name);
+            for (int i = 0; i < results.Count; i++)
+            {
+                selectedObject = results[i].gameObject;
+                selectedObject.transform.GetComponent<MovableObject>().setSelected(true);
             }
         }
     }

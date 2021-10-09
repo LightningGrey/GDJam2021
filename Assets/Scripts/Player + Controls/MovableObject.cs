@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovableObject : MonoBehaviour
 {
+    public bool isUIElement;
     public bool selected = false;
     public bool stay = false;
     public Vector3 originalPos;
@@ -64,7 +65,14 @@ public class MovableObject : MonoBehaviour
 
     private void FollowCursor()
     {
-        this.transform.position = new Vector2(MouseManager.Instance.getCursurPos().x, MouseManager.Instance.getCursurPos().y - 0.5f);
+        if (isUIElement)
+        {
+            this.transform.position = new Vector2(MouseManager.Instance.getCursurPos(0).x, MouseManager.Instance.getCursurPos(0).y - 0.5f);
+        }
+        else
+        {
+            this.transform.position = new Vector2(MouseManager.Instance.getCursurPos(1).x, MouseManager.Instance.getCursurPos(1).y - 0.5f);
+        }
     }
 
     private void ResetPosition()
