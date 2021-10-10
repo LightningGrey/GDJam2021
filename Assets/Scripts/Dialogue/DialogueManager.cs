@@ -18,13 +18,14 @@ public struct Dialogue {
     }
 }
 
-public class DialogueBox : MonoBehaviour {
+public class DialogueManager : MonoBehaviour {
     public TextMeshProUGUI namePlate;
     public TextMeshProUGUI textDisplay;
     public float typingSpeed;
     public List<Dialogue> script = new List<Dialogue>();
     [SerializeField] private GameObject nextButton;
     [SerializeField] private AudioClip sfx;
+    public float volume = 0.5f;
     private AudioSource audioSource;
     private int lineIndex;
     public bool showScript = true;
@@ -39,7 +40,7 @@ public class DialogueBox : MonoBehaviour {
     IEnumerator Type() {
         foreach (char letter in script[lineIndex].line.ToCharArray()) {
             if (letter != ' ')
-                audioSource.PlayOneShot(sfx);
+                audioSource.PlayOneShot(sfx, volume);
             if (letter == '1')
                 textDisplay.text += "  ";
             else

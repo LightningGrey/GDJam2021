@@ -670,15 +670,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 554899819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be04367f8d794844863dd3a3e8e13bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 76a5a5267f2c7374780fcdd0e20d2016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   namePlate: {fileID: 0}
   textDisplay: {fileID: 638895112}
   typingSpeed: 0.03
-  script: []
+  script:
+  - speaker: Carl
+    line: Hello, my name is Carl :3
+  - speaker: Carl
+    line: Welcome to the Sample Scene!
+  - speaker: Carl
+    line: Now Leave }:3
   nextButton: {fileID: 957042133}
   sfx: {fileID: 8300000, guid: 57314506849221541b0dc4921d04a198, type: 3}
+  volume: 0.5
   showScript: 1
 --- !u!1 &638895110
 GameObject:

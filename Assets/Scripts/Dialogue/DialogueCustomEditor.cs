@@ -3,24 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(DialogueBox))]
+[CustomEditor(typeof(DialogueManager))]
 public class DialogueCustomEditor : Editor
 {
     SerializedProperty script;
     public override void OnInspectorGUI() {
         serializedObject.Update();
-        DialogueBox db = (DialogueBox)target;
+        DialogueManager db = (DialogueManager)target;
+
+        GUI.enabled = false;
+        EditorGUILayout.ObjectField("Script", MonoScript.FromMonoBehaviour((DialogueManager)target), typeof(DialogueManager), false);
+        GUI.enabled = true;
+
         EditorGUILayout.PropertyField(serializedObject.FindProperty("namePlate"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("textDisplay"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("typingSpeed"));
 
-
         db.showScript = EditorGUILayout.Foldout(db.showScript, "Script", true);
         if (db.showScript) {
             EditorGUILayout.Space();
-
+            EditorGUI.indentLevel++;
             List<Dialogue> script = db.script;
-            int size = Mathf.Max(0, EditorGUILayout.IntField("Size", script.Count));
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Size", GUILayout.MaxWidth(49));
+            int size = Mathf.Max(0, EditorGUILayout.IntField(script.Count));
+            EditorGUILayout.EndHorizontal();
 
             while (size > script.Count) {
                 script.Add(new Dialogue(null));
@@ -31,25 +38,23 @@ public class DialogueCustomEditor : Editor
             for (int i = 0; i < script.Count; i++) {
                 EditorGUILayout.BeginHorizontal();
 
-                EditorGUILayout.LabelField("Name", GUILayout.MaxWidth(36));
-                string name = EditorGUILayout.TextField(script[i].speaker, GUILayout.MaxWidth(60));
+                EditorGUILayout.LabelField("Name", GUILayout.MaxWidth(49));
+                string name = EditorGUILayout.TextField(script[i].speaker, GUILayout.MaxWidth(71));
 
-                EditorGUILayout.LabelField("Line", GUILayout.MaxWidth(27));
+                EditorGUILayout.LabelField("Line", GUILayout.MaxWidth(40));
                 string line = EditorGUILayout.TextField(script[i].line);
 
                 script[i] = new Dialogue(name, line);
 
                 EditorGUILayout.EndHorizontal();
             }
-
+            EditorGUI.indentLevel--;
             EditorGUILayout.Space();
         }
 
-
         EditorGUILayout.PropertyField(serializedObject.FindProperty("nextButton"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("sfx"));
+        db.volume = EditorGUILayout.Slider("Volume", db.volume, 0.0f, 1.0f);
         serializedObject.ApplyModifiedProperties();
-
-
     }
 }
