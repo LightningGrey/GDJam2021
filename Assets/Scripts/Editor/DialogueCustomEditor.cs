@@ -14,8 +14,9 @@ public class DialogueCustomEditor : Editor
         EditorGUILayout.ObjectField("Script", MonoScript.FromMonoBehaviour((DialogueManager)target), typeof(DialogueManager), false);
         GUI.enabled = true;
 
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("namePlate"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("nameDisplay"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("textDisplay"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("namePlate"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("textBox"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("typingSpeed"));
 

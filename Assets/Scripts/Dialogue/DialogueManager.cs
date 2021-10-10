@@ -23,8 +23,9 @@ public class DialogueManager : MonoBehaviour {
 
     public static DialogueManager Instance { get; set; }
 
-    public TextMeshProUGUI namePlate;
+    public TextMeshProUGUI nameDisplay;
     public TextMeshProUGUI textDisplay;
+    public GameObject namePlate;
     public GameObject textBox;
     public float typingSpeed;
     public List<Dialogue> script = new List<Dialogue>();
@@ -62,6 +63,12 @@ public class DialogueManager : MonoBehaviour {
     }
 
     IEnumerator Type() {
+        if (script[lineIndex].speaker != "") {
+            namePlate.SetActive(true);
+            nameDisplay.text = script[lineIndex].speaker;
+        }
+        else
+            namePlate.SetActive(false);
         foreach (char letter in script[lineIndex].line.ToCharArray()) {
             if (letter != ' ')
                 audioSource.PlayOneShot(sfx, volume);
