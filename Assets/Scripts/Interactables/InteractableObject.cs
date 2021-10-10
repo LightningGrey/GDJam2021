@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InteractableObject : Interactable
 {
+    public List<Dialogue> script = new List<Dialogue>();
+    public bool showScript = true;
 
     void OnEnable()
     {

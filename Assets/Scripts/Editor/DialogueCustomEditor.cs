@@ -6,7 +6,6 @@ using UnityEditor;
 [CustomEditor(typeof(DialogueManager))]
 public class DialogueCustomEditor : Editor
 {
-    SerializedProperty script;
     public override void OnInspectorGUI() {
         serializedObject.Update();
         DialogueManager db = (DialogueManager)target;
@@ -26,7 +25,7 @@ public class DialogueCustomEditor : Editor
             EditorGUI.indentLevel++;
             List<Dialogue> script = db.script;
             EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Size", GUILayout.MaxWidth(49));
+            EditorGUILayout.LabelField("Size", GUILayout.MaxWidth(41));
             int size = Mathf.Max(0, EditorGUILayout.IntField(script.Count));
             EditorGUILayout.EndHorizontal();
 
@@ -39,10 +38,8 @@ public class DialogueCustomEditor : Editor
             for (int i = 0; i < script.Count; i++) {
                 EditorGUILayout.BeginHorizontal();
 
-                EditorGUILayout.LabelField("Name", GUILayout.MaxWidth(49));
+                EditorGUILayout.LabelField("Line", GUILayout.MaxWidth(41));
                 string name = EditorGUILayout.TextField(script[i].speaker, GUILayout.MaxWidth(71));
-
-                EditorGUILayout.LabelField("Line", GUILayout.MaxWidth(40));
                 string line = EditorGUILayout.TextField(script[i].line);
 
                 script[i] = new Dialogue(name, line);
