@@ -8,6 +8,18 @@ public class InteractionManager : MonoBehaviour
     public static InteractionManager Instance { get; set; }
 
     public static event Action interactionEvent;
+    [SerializeField] private GameObject _interactText;
+
+
+    void OnEnable()
+    {
+        InteractRange.interactionText += InteractText;
+    }
+
+    void OnDisable()
+    {
+        InteractRange.interactionText -= InteractText;
+    }
 
 
     void Awake()
@@ -26,5 +38,11 @@ public class InteractionManager : MonoBehaviour
     {
         interactionEvent?.Invoke();
     }
+
+    void InteractText()
+    {
+        _interactText.SetActive(!_interactText.activeSelf);
+    }
+
 
 }

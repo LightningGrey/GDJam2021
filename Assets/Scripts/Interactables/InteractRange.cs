@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InteractRange : MonoBehaviour
 {
     private Interactable _parent;
+    public static event Action interactionText;
 
     void Awake()
     {
@@ -16,8 +19,8 @@ public class InteractRange : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log("entered");
             _parent.CanInteract = true;
+            interactionText?.Invoke();
         }
 
     }
@@ -25,5 +28,6 @@ public class InteractRange : MonoBehaviour
     void OnTriggerExit2D()
     {
         _parent.CanInteract = false;
+        interactionText?.Invoke();
     }
 }

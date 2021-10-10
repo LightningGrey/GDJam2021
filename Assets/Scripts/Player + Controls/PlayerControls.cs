@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,6 +12,7 @@ public class PlayerControls : MonoBehaviour
     [Header("References")]
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Animator _animator;
+    [SerializeField] public GameObject _interactText;
 
     [Header("Variables")] 
     [SerializeField] private float _speed = 0.5f;
@@ -49,25 +51,22 @@ public class PlayerControls : MonoBehaviour
 
     void Animate()
     {
-        if (Keyboard.current.upArrowKey.wasPressedThisFrame || 
-            Keyboard.current.wKey.wasPressedThisFrame)
+        if (_moveInput.x > 0)
         {
-            _animator.SetInteger("Direction", 1);
+            _animator.SetInteger("Direction", 2);
         }
-        else if (Keyboard.current.downArrowKey.wasPressedThisFrame ||
-                 Keyboard.current.sKey.wasPressedThisFrame)
-        {
-            _animator.SetInteger("Direction", 0);
-        }
-        else if (Keyboard.current.leftArrowKey.wasPressedThisFrame ||
-                 Keyboard.current.aKey.wasPressedThisFrame)
+        else if (_moveInput.x < 0)
         {
             _animator.SetInteger("Direction", 3);
         }
-        else if (Keyboard.current.rightArrowKey.wasPressedThisFrame ||
-                 Keyboard.current.dKey.wasPressedThisFrame)
+
+        if (_moveInput.y > 0)
         {
-            _animator.SetInteger("Direction", 2);
+            _animator.SetInteger("Direction", 1);
+        }
+        else if (_moveInput.y < 0)
+        {
+            _animator.SetInteger("Direction", 0);
         }
 
 

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : Interactable
+public class InteractableObject : Interactable
 {
-    [SerializeField] private Animator _chestAnimator;
 
     void OnEnable()
     {
@@ -18,11 +17,9 @@ public class Chest : Interactable
 
     void Interact()
     {
-        if (canInteract && !_chestAnimator.GetBool("Open"))
+        if (canInteract)
         {
-            _chestAnimator.SetBool("Open", true);
-            interactRange.gameObject.SetActive(false);
+            Debug.Log("interacted with " + gameObject);
         }
     }
-
 }
