@@ -888,17 +888,37 @@ PrefabInstance:
     - target: {fileID: 5280678727554241518, guid: 83c9bfb782827eb468921fff8f4ba580,
         type: 3}
       propertyPath: script.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5280678727554241518, guid: 83c9bfb782827eb468921fff8f4ba580,
         type: 3}
       propertyPath: script.Array.data[0].line
-      value: To be the chosen
+      value: 'How to become the chosen one in 3 easy steps:'
       objectReference: {fileID: 0}
     - target: {fileID: 5280678727554241518, guid: 83c9bfb782827eb468921fff8f4ba580,
         type: 3}
       propertyPath: script.Array.data[1].line
-      value: You can click on
+      value: 'Step One: Find ones anywhere in the world'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280678727554241518, guid: 83c9bfb782827eb468921fff8f4ba580,
+        type: 3}
+      propertyPath: script.Array.data[2].line
+      value: 'Step Two: Click on any ones to materialize them'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280678727554241518, guid: 83c9bfb782827eb468921fff8f4ba580,
+        type: 3}
+      propertyPath: script.Array.data[3].line
+      value: 'Step Three: ???'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280678727554241518, guid: 83c9bfb782827eb468921fff8f4ba580,
+        type: 3}
+      propertyPath: script.Array.data[4].line
+      value: 'Step Three point one: Profit!!!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280678727554241518, guid: 83c9bfb782827eb468921fff8f4ba580,
+        type: 3}
+      propertyPath: script.Array.data[5].line
+      value: Don't forget to like and subscribe for more guides!
       objectReference: {fileID: 0}
     - target: {fileID: 5280678727554241518, guid: 83c9bfb782827eb468921fff8f4ba580,
         type: 3}
@@ -39105,6 +39125,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Karl
+      objectReference: {fileID: 0}
+    - target: {fileID: 888436403319614309, guid: 9822d4eb6e0878e4eb4f1af1bf43015d,
+        type: 3}
+      propertyPath: script.Array.data[0].speaker
+      value: carl
+      objectReference: {fileID: 0}
+    - target: {fileID: 888436403319614309, guid: 9822d4eb6e0878e4eb4f1af1bf43015d,
+        type: 3}
+      propertyPath: script.Array.data[1].speaker
+      value: carl
+      objectReference: {fileID: 0}
+    - target: {fileID: 888436403319614309, guid: 9822d4eb6e0878e4eb4f1af1bf43015d,
+        type: 3}
+      propertyPath: script.Array.data[2].speaker
+      value: carl
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9822d4eb6e0878e4eb4f1af1bf43015d, type: 3}
