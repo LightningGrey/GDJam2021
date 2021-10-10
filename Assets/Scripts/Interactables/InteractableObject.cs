@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public class InteractableObject : Interactable
 {
-    public List<Dialogue> script = new List<Dialogue>();
-    public bool showScript = true;
-    public bool hasOne;
-    public Vector2 onePosition;
+    [HideInInspector] public List<Dialogue> script = new List<Dialogue>();
+    [HideInInspector] public bool showScript = true;
+    [HideInInspector] public bool hasOne;
+    [HideInInspector] public Vector2 onePosition;
 
     public bool getHasOne()
     {
