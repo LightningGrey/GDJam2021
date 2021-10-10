@@ -7,6 +7,7 @@ public class InteractableObject : Interactable
 {
     public List<Dialogue> script = new List<Dialogue>();
     public List<Dialogue> script2 = new List<Dialogue>();
+    public AudioClip sfx;
     public bool showScript = true;
     public bool hasOne;
     public Vector2 onePosition;
@@ -60,7 +61,7 @@ public class InteractableObject : Interactable
                 DialogueManager.Instance.SetOnePosition(onePosition);
             }
 
-            DialogueManager.Instance.DisplayText(script);
+            DialogueManager.Instance.DisplayText(script, sfx);
         }
     }
 

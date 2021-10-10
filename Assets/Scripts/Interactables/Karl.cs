@@ -9,6 +9,7 @@ public class Karl : Interactable
     public bool showScript = true;
     public bool hasOne;
     public Vector2 onePosition;
+    public AudioClip sfx;
 
     public bool getHasOne()
     {
@@ -43,7 +44,7 @@ public class Karl : Interactable
                 DialogueManager.Instance.SetOnePosition(onePosition);
             }
 
-            DialogueManager.Instance.DisplayText(script);
+            DialogueManager.Instance.DisplayText(script, sfx);
         }
     }
     protected void Reenable()

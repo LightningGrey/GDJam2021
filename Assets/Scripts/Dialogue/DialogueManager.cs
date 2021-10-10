@@ -30,9 +30,9 @@ public class DialogueManager : MonoBehaviour {
     public float typingSpeed;
     public List<Dialogue> script = new List<Dialogue>();
     [SerializeField] private GameObject nextButton;
-    [SerializeField] private AudioClip sfx;
+    public AudioClip sfx;
     public float volume = 0.5f;
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
     private int lineIndex;
     public bool showScript = true;
 
@@ -56,10 +56,7 @@ public class DialogueManager : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        audioSource = GetComponent<AudioSource>();
         oneObject.SetActive(false);
-        //StartCoroutine(Type());
-        //nextButton.SetActive(false);
     }
 
     IEnumerator Type() {
@@ -110,9 +107,10 @@ public class DialogueManager : MonoBehaviour {
         nextButton.SetActive(false);
     }
 
-    public void DisplayText(List<Dialogue> newScript)
+    public void DisplayText(List<Dialogue> newScript, AudioClip sound)
     {
         script = newScript;
+        sfx = sound;
         enableEvent?.Invoke();
         textBox.SetActive(true);
         StartCoroutine(Type());

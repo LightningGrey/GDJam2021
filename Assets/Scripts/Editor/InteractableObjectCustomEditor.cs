@@ -54,6 +54,7 @@ public class InteractableObjectCustomEditor : InteractableCustomEditor {
             }
             EditorGUI.indentLevel--;
             EditorGUILayout.Space();
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("sfx"));
         }
         serializedObject.ApplyModifiedPropertiesWithoutUndo();
         if (GUI.changed) {
