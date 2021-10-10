@@ -215,6 +215,33 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Always"",
+            ""id"": ""13aa26e2-4bdd-4d78-abdf-bf14e27f446d"",
+            ""actions"": [
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""c7644b38-3b2d-48db-bdb4-1acc0e38515b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d6ccea39-4961-42e0-920d-c19a040fff36"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -227,6 +254,9 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Keyboard = asset.FindActionMap("Keyboard", throwIfNotFound: true);
         m_Keyboard_Move = m_Keyboard.FindAction("Move", throwIfNotFound: true);
         m_Keyboard_Interact = m_Keyboard.FindAction("Interact", throwIfNotFound: true);
+        // Always
+        m_Always = asset.FindActionMap("Always", throwIfNotFound: true);
+        m_Always_Quit = m_Always.FindAction("Quit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -354,6 +384,39 @@ public class @Controls : IInputActionCollection, IDisposable
         }
     }
     public KeyboardActions @Keyboard => new KeyboardActions(this);
+
+    // Always
+    private readonly InputActionMap m_Always;
+    private IAlwaysActions m_AlwaysActionsCallbackInterface;
+    private readonly InputAction m_Always_Quit;
+    public struct AlwaysActions
+    {
+        private @Controls m_Wrapper;
+        public AlwaysActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Quit => m_Wrapper.m_Always_Quit;
+        public InputActionMap Get() { return m_Wrapper.m_Always; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AlwaysActions set) { return set.Get(); }
+        public void SetCallbacks(IAlwaysActions instance)
+        {
+            if (m_Wrapper.m_AlwaysActionsCallbackInterface != null)
+            {
+                @Quit.started -= m_Wrapper.m_AlwaysActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_AlwaysActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_AlwaysActionsCallbackInterface.OnQuit;
+            }
+            m_Wrapper.m_AlwaysActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
+            }
+        }
+    }
+    public AlwaysActions @Always => new AlwaysActions(this);
     public interface IMouseActions
     {
         void OnClick(InputAction.CallbackContext context);
@@ -363,5 +426,9 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IAlwaysActions
+    {
+        void OnQuit(InputAction.CallbackContext context);
     }
 }
