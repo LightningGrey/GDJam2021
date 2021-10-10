@@ -107,7 +107,7 @@ public class MouseManager : MonoBehaviour
             {
                 if(outlineObject != null)
                 {
-                    selectedObject.GetComponent<MovableObject>().setStay(true);
+                    //selectedObject.GetComponent<MovableObject>().setStay(true);
                     outlineObject.GetComponent<OutlineObject>().setOutlined(false);
                     outlineObject.GetComponent<OutlineObject>().setConditionMet(true);
                     outlineObject = null;
