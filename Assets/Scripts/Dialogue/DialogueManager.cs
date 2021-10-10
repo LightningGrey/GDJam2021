@@ -52,8 +52,8 @@ public class DialogueManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         audioSource = GetComponent<AudioSource>();
-        StartCoroutine(Type());
-        nextButton.SetActive(false);
+        //StartCoroutine(Type());
+        //nextButton.SetActive(false);
     }
 
     IEnumerator Type() {
@@ -82,6 +82,7 @@ public class DialogueManager : MonoBehaviour {
         }
         else
         {
+            lineIndex = 0;
             textDisplay.text = "";
             textBox.SetActive(false);
             enableEvent?.Invoke();
@@ -90,8 +91,9 @@ public class DialogueManager : MonoBehaviour {
         nextButton.SetActive(false);
     }
 
-    public void DisplayText()
+    public void DisplayText(List<Dialogue> newScript)
     {
+        script = newScript;
         enableEvent?.Invoke();
         textBox.SetActive(true);
         StartCoroutine(Type());
