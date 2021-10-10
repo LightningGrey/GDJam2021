@@ -50,6 +50,7 @@ public class DialogueCustomEditor : Editor
             EditorGUILayout.Space();
         }
 
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("oneObject"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("nextButton"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("sfx"));
         db.volume = EditorGUILayout.Slider("Volume", db.volume, 0.0f, 1.0f);

@@ -6,6 +6,18 @@ public class InteractableObject : Interactable
 {
     public List<Dialogue> script = new List<Dialogue>();
     public bool showScript = true;
+    public bool hasOne = false;
+    public Vector2 onePosition;
+
+    public bool getHasOne()
+    {
+        return hasOne;
+    }
+
+    public Vector2 getOnePosition()
+    {
+        return onePosition;
+    }
 
     void OnEnable()
     {
@@ -25,6 +37,11 @@ public class InteractableObject : Interactable
         {
             //Debug.Log("interacted with " + gameObject);
             //interactRange.gameObject.SetActive(false);
+            if (hasOne)
+            {
+                DialogueManager.Instance.SetOnePosition(onePosition);
+            }
+
             DialogueManager.Instance.DisplayText(script);
         }
     }
