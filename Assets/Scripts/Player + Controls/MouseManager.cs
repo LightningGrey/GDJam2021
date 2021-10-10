@@ -109,9 +109,11 @@ public class MouseManager : MonoBehaviour
                 {
                     selectedObject.GetComponent<MovableObject>().setStay(true);
                     outlineObject.GetComponent<OutlineObject>().setOutlined(false);
+                    outlineObject.GetComponent<OutlineObject>().setConditionMet(true);
                     outlineObject = null;
                 }
                 selectedObject.GetComponent<MovableObject>().setSelected(false);
+                selectedObject.SetActive(false);
                 selectedObject = null;
             }
         }

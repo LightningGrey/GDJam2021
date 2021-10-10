@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Solid_Contour_inside
-  m_Shader: {fileID: 4800000, guid: 1ecad76f5afc08c4baa59e2c3946bd55, type: 3}
+  m_Shader: {fileID: 4800000, guid: 62505ee61d20098489c6f861ed25cce1, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _FRAMEMODE_GENERAL _OUTLINEENABLED_ON _OUTLINEMODE_SOLID
     _OUTLINEPOSITION_INSIDE_UNDER_SPRITE _OUTLINESHAPE_CONTOUR _TILEMODE_STRETCH
   m_LightmapFlags: 4
@@ -94,7 +94,7 @@ Material:
     - _SpriteOverlay: 0
     - _SrcBlend: 1
     - _StencilRef: 0
-    - _Thickness: 30.41
+    - _Thickness: 2
     - _TileMode: 0
     - _UVSec: 0
     - _Weight: 0.5
@@ -107,5 +107,5 @@ Material:
     - _GradientOutline2: {r: 0.7461073, g: 0.8591039, b: 1, a: 1}
     - _ImageOutline: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SolidOutline: {r: 0.64275545, g: 0.8679245, b: 0.78257006, a: 1}
+    - _SolidOutline: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

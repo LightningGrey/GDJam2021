@@ -6,6 +6,7 @@ public class OutlineObject : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer outlineRenderer;
     [SerializeField] private bool outlined = false;
+    bool conditionMet = false;
     public bool getOutlined()
     {
         return outlined;
@@ -14,6 +15,16 @@ public class OutlineObject : MonoBehaviour
     public void setOutlined(bool new_Outlined)
     {
         outlined = new_Outlined;
+    }
+
+    public bool getConditionMet()
+    {
+        return conditionMet;
+    }
+
+    public void setConditionMet(bool new_Condition)
+    {
+        conditionMet = new_Condition;
     }
 
     public void EnableOutline()
