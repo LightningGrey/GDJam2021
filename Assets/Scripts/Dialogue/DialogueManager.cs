@@ -24,6 +24,7 @@ public class DialogueManager : MonoBehaviour {
 
     public TextMeshProUGUI namePlate;
     public TextMeshProUGUI textDisplay;
+    public GameObject textBox;
     public float typingSpeed;
     public List<Dialogue> script = new List<Dialogue>();
     [SerializeField] private GameObject nextButton;
@@ -45,8 +46,8 @@ public class DialogueManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         audioSource = GetComponent<AudioSource>();
-        StartCoroutine(Type());
-        nextButton.SetActive(false);
+        //StartCoroutine(Type());
+        //nextButton.SetActive(false);
     }
 
     IEnumerator Type() {
@@ -74,7 +75,18 @@ public class DialogueManager : MonoBehaviour {
             StartCoroutine(Type());
         }
         else
+        {
             textDisplay.text = "";
+            textBox.SetActive(false);
+        }
+
+        nextButton.SetActive(false);
+    }
+
+    public void DisplayText()
+    {
+        textBox.SetActive(true);
+        StartCoroutine(Type());
         nextButton.SetActive(false);
     }
 }

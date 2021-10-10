@@ -76,11 +76,11 @@ public class PlayerControls : MonoBehaviour
 
     void OnEnable()
     {
-        _playerKbMove.Enable();
+        _playerKbMove.Keyboard.Enable();
     }
 
     void OnDisable()
     {
-        _playerKbMove.Disable();
+        _playerKbMove.Keyboard.Disable();
     }
 }

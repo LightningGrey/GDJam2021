@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
-    public static InteractionManager Instance { get; set; }
+    public static InteractionManager Instance { get; private set; }
 
     public static event Action interactionEvent;
     [SerializeField] private GameObject _interactText;

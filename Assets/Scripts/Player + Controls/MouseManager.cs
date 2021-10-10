@@ -202,11 +202,11 @@ public class MouseManager : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.Enable();
+        controls.Mouse.Enable();
     }
 
     private void OnDisable()
     {
-        controls.Disable();
+        controls.Mouse.Disable();
     }
 }

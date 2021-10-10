@@ -17,6 +17,7 @@ public class DialogueCustomEditor : Editor
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("namePlate"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("textDisplay"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("textBox"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("typingSpeed"));
 
         db.showScript = EditorGUILayout.Foldout(db.showScript, "Script", true);

@@ -20,6 +20,7 @@ public class InteractableObject : Interactable
         if (canInteract)
         {
             Debug.Log("interacted with " + gameObject);
+            DialogueManager.Instance.DisplayText();
         }
     }
 }
