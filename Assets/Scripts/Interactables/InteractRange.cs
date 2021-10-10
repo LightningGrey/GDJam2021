@@ -14,7 +14,6 @@ public class InteractRange : MonoBehaviour
         _parent = gameObject.transform.parent.GetComponent<Interactable>();
     }
 
-
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))

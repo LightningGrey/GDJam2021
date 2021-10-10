@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2439212814629973153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.072, y: 0.925, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2439212814904598637}
@@ -78,6 +78,7 @@ MonoBehaviour:
     line: Here lies someone who died.
   - speaker: Tombstone
     line: They were a nerd.
+  script2: []
   showScript: 1
   hasOne: 0
   onePosition: {x: 0, y: 0}
