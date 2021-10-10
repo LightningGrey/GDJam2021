@@ -47,7 +47,7 @@ public class MouseManager : MonoBehaviour
         }
 
         controls = new Controls();
-        ChangeCursor(cursor);
+        //ChangeCursor(cursor);
         Cursor.lockState = CursorLockMode.Confined;
         mainCamera = Camera.main;
     }
@@ -79,7 +79,7 @@ public class MouseManager : MonoBehaviour
 
     private void StartedClick()
     {
-        ChangeCursor(cursorClicked);
+        //ChangeCursor(cursorClicked);
         DetectClick();
         if (selectedObject != null)
         {
@@ -100,7 +100,7 @@ public class MouseManager : MonoBehaviour
 
     private void EndedClick()
     {
-        ChangeCursor(cursor);
+        //ChangeCursor(cursor);
         if (selectedObject != null)
         {
             if (selectedObject.GetComponent<MovableObject>() != null)
