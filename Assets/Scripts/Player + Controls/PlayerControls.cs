@@ -15,6 +15,7 @@ public class PlayerControls : MonoBehaviour
 
     [Header("Variables")] 
     [SerializeField] private float _speed = 0.5f;
+    [SerializeField] private int _drunkMode = 1;
 
     private Vector2 _moveInput = Vector2.zero;
 
@@ -34,7 +35,7 @@ public class PlayerControls : MonoBehaviour
     void FixedUpdate()
     {
         _moveInput = Vector2.ClampMagnitude(_playerKbMove.Keyboard.Move.ReadValue<Vector2>(), 1.0f);
-        _rb.velocity = _moveInput * _speed;
+        _rb.velocity = _moveInput * _speed * _drunkMode;
 
     }
 
@@ -50,20 +51,20 @@ public class PlayerControls : MonoBehaviour
 
     void Animate()
     {
-        if (_moveInput.x > 0)
+        if (_moveInput.x * _drunkMode > 0)
         {
             _animator.SetInteger("Direction", 2);
         }
-        else if (_moveInput.x < 0)
+        else if (_moveInput.x * _drunkMode < 0)
         {
             _animator.SetInteger("Direction", 3);
         }
 
-        if (_moveInput.y > 0)
+        if (_moveInput.y * _drunkMode > 0)
         {
             _animator.SetInteger("Direction", 1);
         }
-        else if (_moveInput.y < 0)
+        else if (_moveInput.y * _drunkMode < 0)
         {
             _animator.SetInteger("Direction", 0);
         }
