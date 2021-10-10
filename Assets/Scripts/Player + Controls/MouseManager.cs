@@ -199,14 +199,28 @@ public class MouseManager : MonoBehaviour
         Cursor.SetCursor(cursorType, hotspot, CursorMode.Auto);
     }
 
+    void ControlEnable()
+    {
+        if (controls.Mouse.enabled)
+        {
+            controls.Mouse.Disable();
+        }
+        else
+        {
+            controls.Mouse.Enable();
+        }
+    }
+
 
     private void OnEnable()
     {
         controls.Mouse.Enable();
+        DialogueManager.enableEvent += ControlEnable;
     }
 
     private void OnDisable()
     {
         controls.Mouse.Disable();
+        DialogueManager.enableEvent -= ControlEnable;
     }
 }

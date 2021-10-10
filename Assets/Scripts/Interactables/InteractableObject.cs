@@ -8,19 +8,28 @@ public class InteractableObject : Interactable
     void OnEnable()
     {
         InteractionManager.interactionEvent += Interact;
+        DialogueManager.enableEvent += Reenable;
     }
 
     void OnDisable()
     {
         InteractionManager.interactionEvent -= Interact;
+        DialogueManager.enableEvent -= Reenable;
     }
 
     void Interact()
     {
         if (canInteract)
         {
-            Debug.Log("interacted with " + gameObject);
+            //Debug.Log("interacted with " + gameObject);
+            //interactRange.gameObject.SetActive(false);
             DialogueManager.Instance.DisplayText();
         }
     }
+
+    void Reenable()
+    {
+        interactRange.gameObject.SetActive(!interactRange.gameObject.activeSelf);
+    }
+
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,11 @@ public class DialogueManager : MonoBehaviour {
     private AudioSource audioSource;
     private int lineIndex;
     public bool showScript = true;
+
+
+    //enable event
+    public static event Action disableEvent;
+    public static event Action enableEvent;
 
     private void Awake() {
         if (Instance != null && Instance != this) {
@@ -78,6 +84,7 @@ public class DialogueManager : MonoBehaviour {
         {
             textDisplay.text = "";
             textBox.SetActive(false);
+            enableEvent?.Invoke();
         }
 
         nextButton.SetActive(false);
@@ -85,6 +92,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void DisplayText()
     {
+        enableEvent?.Invoke();
         textBox.SetActive(true);
         StartCoroutine(Type());
         nextButton.SetActive(false);

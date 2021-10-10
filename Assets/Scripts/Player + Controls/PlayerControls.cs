@@ -12,7 +12,6 @@ public class PlayerControls : MonoBehaviour
     [Header("References")]
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private Animator _animator;
-    [SerializeField] public GameObject _interactText;
 
     [Header("Variables")] 
     [SerializeField] private float _speed = 0.5f;
@@ -73,14 +72,29 @@ public class PlayerControls : MonoBehaviour
         _animator.SetBool("IsMoving", _moveInput != Vector2.zero);
     }
 
+    void ControlEnable()
+    {
+        if (_playerKbMove.Keyboard.enabled)
+        {
+            _playerKbMove.Keyboard.Disable();
+        }
+        else
+        {
+            _playerKbMove.Keyboard.Enable();
+        }
+    }
+
 
     void OnEnable()
     {
         _playerKbMove.Keyboard.Enable();
+        DialogueManager.enableEvent += ControlEnable;
     }
 
     void OnDisable()
     {
         _playerKbMove.Keyboard.Disable();
+        DialogueManager.enableEvent -= ControlEnable;
     }
+
 }
