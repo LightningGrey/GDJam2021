@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    [SerializeField] protected Collider2D interactRange;
+    public Collider2D interactRange;
     protected bool canInteract = false;
 
     public bool CanInteract
