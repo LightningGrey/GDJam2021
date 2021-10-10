@@ -19,6 +19,9 @@ public struct Dialogue {
 }
 
 public class DialogueManager : MonoBehaviour {
+
+    public static DialogueManager Instance { get; set; }
+
     public TextMeshProUGUI namePlate;
     public TextMeshProUGUI textDisplay;
     public float typingSpeed;
@@ -29,6 +32,15 @@ public class DialogueManager : MonoBehaviour {
     private AudioSource audioSource;
     private int lineIndex;
     public bool showScript = true;
+
+    private void Awake() {
+        if (Instance != null && Instance != this) {
+            Destroy(this);
+        }
+        else {
+            Instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -54,11 +66,15 @@ public class DialogueManager : MonoBehaviour {
         if (lineIndex < script.Count - 1) {
             lineIndex++;
             textDisplay.text = "";
+            /*
+            if (script[lineIndex].speaker = "") {
+                //script[lineIndex] = new Dialogue(script[lineIndex - 1].speaker, script[lineIndex].line);
+            }
+            */
             StartCoroutine(Type());
         }
-        else {
+        else
             textDisplay.text = "";
-        }
         nextButton.SetActive(false);
     }
 }
