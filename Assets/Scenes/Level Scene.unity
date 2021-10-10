@@ -888,17 +888,22 @@ PrefabInstance:
     - target: {fileID: 5280678727554241518, guid: 83c9bfb782827eb468921fff8f4ba580,
         type: 3}
       propertyPath: script.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5280678727554241518, guid: 83c9bfb782827eb468921fff8f4ba580,
         type: 3}
       propertyPath: script.Array.data[0].line
-      value: HERE LIES A MYSTERY
+      value: To be the chosen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280678727554241518, guid: 83c9bfb782827eb468921fff8f4ba580,
+        type: 3}
+      propertyPath: script.Array.data[1].line
+      value: You can click on
       objectReference: {fileID: 0}
     - target: {fileID: 5280678727554241518, guid: 83c9bfb782827eb468921fff8f4ba580,
         type: 3}
       propertyPath: script.Array.data[0].speaker
-      value: Pillar
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5055698509961064897, guid: 6d6991dbbdeecb1488bbf78c063d1235,
         type: 3}
@@ -21279,6 +21284,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 612813892966719262, guid: 9308fc720fbde9a4daff64cf61527128,
+        type: 3}
+      propertyPath: script.Array.data[0].line
+      value: '''F'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 612813892966719262, guid: 9308fc720fbde9a4daff64cf61527128,
+        type: 3}
+      propertyPath: script.Array.data[1].line
+      value: '- Jonah'
+      objectReference: {fileID: 0}
+    - target: {fileID: 612813892966719262, guid: 9308fc720fbde9a4daff64cf61527128,
+        type: 3}
+      propertyPath: script.Array.data[0].speaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 612813892966719262, guid: 9308fc720fbde9a4daff64cf61527128,
+        type: 3}
+      propertyPath: script.Array.data[1].speaker
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 612813892966719263, guid: 9308fc720fbde9a4daff64cf61527128,
         type: 3}
       propertyPath: m_RootOrder
@@ -23076,12 +23101,17 @@ PrefabInstance:
     - target: {fileID: 2055102311959635368, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
       propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635368, guid: 99597c7b4aa47494fb2b6061505735da,
+        type: 3}
+      propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635368, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: -105541197
+      value: -1869315837
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635369, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
@@ -23096,12 +23126,12 @@ PrefabInstance:
     - target: {fileID: 2055102311959635375, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.8207338
+      value: -9.18
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.988825
+      value: 12.41
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 99597c7b4aa47494fb2b6061505735da,
         type: 3}
@@ -23862,6 +23892,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1546008462}
     m_Modifications:
+    - target: {fileID: 467871566610832852, guid: 86974dd04b4d4a045a5615c5f172aa90,
+        type: 3}
+      propertyPath: script.Array.data[0].line
+      value: '''PRECISE GUNPLAY THEY SAID'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 467871566610832852, guid: 86974dd04b4d4a045a5615c5f172aa90,
+        type: 3}
+      propertyPath: script.Array.data[1].line
+      value: '- Dhruva'
+      objectReference: {fileID: 0}
+    - target: {fileID: 467871566610832852, guid: 86974dd04b4d4a045a5615c5f172aa90,
+        type: 3}
+      propertyPath: script.Array.data[0].speaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 467871566610832852, guid: 86974dd04b4d4a045a5615c5f172aa90,
+        type: 3}
+      propertyPath: script.Array.data[1].speaker
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 467871566610832853, guid: 86974dd04b4d4a045a5615c5f172aa90,
         type: 3}
       propertyPath: m_RootOrder
@@ -24379,6 +24429,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1546008462}
     m_Modifications:
+    - target: {fileID: 2439212814629973166, guid: eb107fbfaef160741b69f4ea1a3b823c,
+        type: 3}
+      propertyPath: script.Array.data[0].line
+      value: '''That''s toxic'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439212814629973166, guid: eb107fbfaef160741b69f4ea1a3b823c,
+        type: 3}
+      propertyPath: script.Array.data[1].line
+      value: '- Left half of Jiminy'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439212814629973166, guid: eb107fbfaef160741b69f4ea1a3b823c,
+        type: 3}
+      propertyPath: script.Array.data[0].speaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439212814629973166, guid: eb107fbfaef160741b69f4ea1a3b823c,
+        type: 3}
+      propertyPath: script.Array.data[1].speaker
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2439212814629973167, guid: eb107fbfaef160741b69f4ea1a3b823c,
         type: 3}
       propertyPath: m_RootOrder
@@ -25592,6 +25662,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 25.009926
       objectReference: {fileID: 0}
+    - target: {fileID: 4801932969243230033, guid: 0fda7f48a54e7304ebcd400c5112dee1,
+        type: 3}
+      propertyPath: script.Array.data[0].line
+      value: '''Poggers'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801932969243230033, guid: 0fda7f48a54e7304ebcd400c5112dee1,
+        type: 3}
+      propertyPath: script.Array.data[1].line
+      value: '- Hunter'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801932969243230033, guid: 0fda7f48a54e7304ebcd400c5112dee1,
+        type: 3}
+      propertyPath: script.Array.data[0].speaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801932969243230033, guid: 0fda7f48a54e7304ebcd400c5112dee1,
+        type: 3}
+      propertyPath: script.Array.data[1].speaker
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635369, guid: 6242b925f1d3e0d44a183102cd3d4c26,
         type: 3}
       propertyPath: m_Name
@@ -25822,6 +25912,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 25.009926
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887626168030100019, guid: 3c4c0a49b45c22f43a680a492cc111f2,
+        type: 3}
+      propertyPath: script.Array.data[0].line
+      value: '''There was this one time...'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887626168030100019, guid: 3c4c0a49b45c22f43a680a492cc111f2,
+        type: 3}
+      propertyPath: script.Array.data[1].line
+      value: '- Sukhbir'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887626168030100019, guid: 3c4c0a49b45c22f43a680a492cc111f2,
+        type: 3}
+      propertyPath: script.Array.data[0].speaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887626168030100019, guid: 3c4c0a49b45c22f43a680a492cc111f2,
+        type: 3}
+      propertyPath: script.Array.data[1].speaker
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635369, guid: 3fcd8726c7cd53345947949baefbab35,
         type: 3}
@@ -28029,8 +28139,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171362689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.92, y: 21.1334, z: 0}
-  m_LocalScale: {x: 1, y: 1.0377629, z: 1}
+  m_LocalPosition: {x: -8.33, y: 10.79, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -29725,6 +29835,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1546008462}
     m_Modifications:
+    - target: {fileID: 467871566610832852, guid: 86974dd04b4d4a045a5615c5f172aa90,
+        type: 3}
+      propertyPath: script.Array.data[0].line
+      value: '''He''s one shot! I''m pushing'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 467871566610832852, guid: 86974dd04b4d4a045a5615c5f172aa90,
+        type: 3}
+      propertyPath: script.Array.data[1].line
+      value: '- Edward'
+      objectReference: {fileID: 0}
+    - target: {fileID: 467871566610832852, guid: 86974dd04b4d4a045a5615c5f172aa90,
+        type: 3}
+      propertyPath: script.Array.data[0].speaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 467871566610832852, guid: 86974dd04b4d4a045a5615c5f172aa90,
+        type: 3}
+      propertyPath: script.Array.data[1].speaker
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 467871566610832853, guid: 86974dd04b4d4a045a5615c5f172aa90,
         type: 3}
       propertyPath: m_RootOrder
@@ -30949,6 +31079,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1546008462}
     m_Modifications:
+    - target: {fileID: 2439212814629973166, guid: eb107fbfaef160741b69f4ea1a3b823c,
+        type: 3}
+      propertyPath: script.Array.data[0].line
+      value: '''I''m never wrong!'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439212814629973166, guid: eb107fbfaef160741b69f4ea1a3b823c,
+        type: 3}
+      propertyPath: script.Array.data[1].line
+      value: '- Right half of Jiminy'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439212814629973166, guid: eb107fbfaef160741b69f4ea1a3b823c,
+        type: 3}
+      propertyPath: script.Array.data[0].speaker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439212814629973166, guid: eb107fbfaef160741b69f4ea1a3b823c,
+        type: 3}
+      propertyPath: script.Array.data[1].speaker
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2439212814629973167, guid: eb107fbfaef160741b69f4ea1a3b823c,
         type: 3}
       propertyPath: m_RootOrder
