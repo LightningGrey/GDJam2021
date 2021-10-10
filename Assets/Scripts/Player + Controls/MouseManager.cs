@@ -154,7 +154,10 @@ public class MouseManager : MonoBehaviour
             for (int i = 0; i < results.Count; i++)
             {
                 selectedObject = results[i].gameObject;
-                selectedObject.transform.GetComponent<MovableObject>().setSelected(true);
+                if (selectedObject.transform.GetComponent<MovableObject>() != null)
+                {
+                    selectedObject.transform.GetComponent<MovableObject>().setSelected(true);
+                }
             }
         }
     }

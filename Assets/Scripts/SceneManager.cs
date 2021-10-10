@@ -23,7 +23,7 @@ public class SceneManager : MonoBehaviour
     public void FadeToBlack()
     {
         gameOverContainer.SetActive(true);
-        image.CrossFadeAlpha(1, 5.0f, true);
+        image.CrossFadeAlpha(1, 5.0f, false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
