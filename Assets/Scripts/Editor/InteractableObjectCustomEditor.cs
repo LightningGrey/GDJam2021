@@ -23,6 +23,8 @@ public class InteractableObjectCustomEditor : InteractableCustomEditor {
 
         io.hasOne = EditorGUILayout.Toggle("Has One", io.hasOne);
         io.onePosition = EditorGUILayout.Vector2Field("One Position", io.onePosition);
+        EditorGUILayout.ObjectField(serializedObject.FindProperty("triggeredObject"));
+
         io.showScript = EditorGUILayout.Foldout(io.showScript, "Script", true);
         if (io.showScript) {
             EditorGUILayout.Space();

@@ -8,6 +8,7 @@ public class InteractableObject : Interactable
     [HideInInspector] public bool showScript = true;
     [HideInInspector] public bool hasOne;
     [HideInInspector] public Vector2 onePosition;
+    public GameObject triggeredObject;
 
     public bool getHasOne()
     {
@@ -17,6 +18,18 @@ public class InteractableObject : Interactable
     public Vector2 getOnePosition()
     {
         return onePosition;
+    }
+
+    private void Update()
+    {
+        if (triggeredObject != null && OneManager.Instance.one.activeSelf)
+        {
+            triggeredObject.SetActive(false);
+        }
+        else if (triggeredObject!= null && !OneManager.Instance.one.activeSelf)
+        {
+            triggeredObject.SetActive(true);
+        }
     }
 
     void OnEnable()
