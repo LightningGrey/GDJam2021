@@ -25,9 +25,12 @@ public class InteractRange : MonoBehaviour
 
     }
 
-    void OnTriggerExit2D()
+    void OnTriggerExit2D(Collider2D col)
     {
-        _parent.CanInteract = false;
-        interactionText?.Invoke();
+        if (col.gameObject.CompareTag("Player"))
+        {
+            _parent.CanInteract = false;
+            interactionText?.Invoke();
+        }
     }
 }
