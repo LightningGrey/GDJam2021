@@ -22891,6 +22891,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3007487420606045700, guid: 0ad21131b6a7fd546b0ff1273efd4038,
+        type: 3}
+      propertyPath: hasOne
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007487420606045700, guid: 0ad21131b6a7fd546b0ff1273efd4038,
+        type: 3}
+      propertyPath: onePosition.x
+      value: 439
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007487420606045700, guid: 0ad21131b6a7fd546b0ff1273efd4038,
+        type: 3}
+      propertyPath: onePosition.y
+      value: 134
+      objectReference: {fileID: 0}
     - target: {fileID: 3007487420606045755, guid: 0ad21131b6a7fd546b0ff1273efd4038,
         type: 3}
       propertyPath: m_Name
@@ -29419,7 +29434,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cd31313e3f9c243408680400a3d7dd5c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -29483,7 +29498,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &1444259078
