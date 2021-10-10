@@ -11,6 +11,7 @@ public class InteractableObject : Interactable
     public bool hasOne;
     public Vector2 onePosition;
 
+
     public bool getHasOne()
     {
         return hasOne;
