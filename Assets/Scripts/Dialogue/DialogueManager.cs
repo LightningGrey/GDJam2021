@@ -35,16 +35,20 @@ public class DialogueManager : MonoBehaviour {
     private int lineIndex;
     public bool showScript = true;
 
+    [SerializeField] private GameObject oneObject;
+
 
     //enable event
     public static event Action disableEvent;
     public static event Action enableEvent;
 
     private void Awake() {
-        if (Instance != null && Instance != this) {
+        if (Instance != null && Instance != this)
+        {
             Destroy(this);
         }
-        else {
+        else
+        {
             Instance = this;
         }
     }
@@ -52,6 +56,7 @@ public class DialogueManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         audioSource = GetComponent<AudioSource>();
+        oneObject.SetActive(false);
         //StartCoroutine(Type());
         //nextButton.SetActive(false);
     }
@@ -61,7 +66,13 @@ public class DialogueManager : MonoBehaviour {
             if (letter != ' ')
                 audioSource.PlayOneShot(sfx, volume);
             if (letter == '1')
+            {
                 textDisplay.text += "  ";
+                if (!OneManager.Instance.active())
+                {
+                    oneObject.SetActive(true);
+                }
+            }
             else
                 textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
@@ -70,6 +81,7 @@ public class DialogueManager : MonoBehaviour {
     }
 
     public void NextLine() {
+        oneObject.SetActive(false);
         if (lineIndex < script.Count - 1) {
             lineIndex++;
             textDisplay.text = "";
@@ -98,5 +110,15 @@ public class DialogueManager : MonoBehaviour {
         textBox.SetActive(true);
         StartCoroutine(Type());
         nextButton.SetActive(false);
+    }
+
+    public void SetOnePosition(Vector2 pos)
+    {
+        oneObject.transform.position = pos;
+    }
+
+    public void HideOneText()
+    {
+        oneObject.SetActive(false);
     }
 }
