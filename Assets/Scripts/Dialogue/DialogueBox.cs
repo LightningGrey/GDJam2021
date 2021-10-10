@@ -19,8 +19,8 @@ public struct Dialogue {
 }
 
 public class DialogueBox : MonoBehaviour {
-    public TextMeshProUGUI speakerBubble;
-    public TextMeshProUGUI speechBubble;
+    public TextMeshProUGUI namePlate;
+    public TextMeshProUGUI textDisplay;
     public float typingSpeed;
     public List<Dialogue> script = new List<Dialogue>();
     [SerializeField] private GameObject nextButton;
@@ -41,9 +41,9 @@ public class DialogueBox : MonoBehaviour {
             if (letter != ' ')
                 audioSource.PlayOneShot(sfx);
             if (letter == '1')
-                speechBubble.text += "  ";
+                textDisplay.text += "  ";
             else
-                speechBubble.text += letter;
+                textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
         nextButton.SetActive(true);
@@ -52,11 +52,11 @@ public class DialogueBox : MonoBehaviour {
     public void NextLine() {
         if (lineIndex < script.Count - 1) {
             lineIndex++;
-            speechBubble.text = "";
+            textDisplay.text = "";
             StartCoroutine(Type());
         }
         else {
-            speechBubble.text = "";
+            textDisplay.text = "";
         }
         nextButton.SetActive(false);
     }

@@ -10,10 +10,9 @@ public class DialogueCustomEditor : Editor
     public override void OnInspectorGUI() {
         serializedObject.Update();
         DialogueBox db = (DialogueBox)target;
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("speakerBubble"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("speechBubble"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("namePlate"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("textDisplay"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("typingSpeed"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("script"));
 
 
         db.showScript = EditorGUILayout.Foldout(db.showScript, "Script", true);
