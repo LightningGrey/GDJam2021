@@ -25,7 +25,7 @@ public class InteractableObject : Interactable
         {
             //Debug.Log("interacted with " + gameObject);
             //interactRange.gameObject.SetActive(false);
-            DialogueManager.Instance.DisplayText();
+            DialogueManager.Instance.DisplayText(script);
         }
     }
 
