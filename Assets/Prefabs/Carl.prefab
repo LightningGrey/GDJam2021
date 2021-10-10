@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 3837221464752224129}
   _animator: {fileID: 1619411713681843133}
-  _speed: 10
+  _speed: 5
 --- !u!1 &5651338566910383367
 GameObject:
   m_ObjectHideFlags: 0
