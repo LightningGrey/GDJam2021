@@ -194,17 +194,6 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""72c31e72-d706-4b47-bb45-4653dfc1f44a"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""8d1ea85d-e839-467b-b584-285d60d5e3ca"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",

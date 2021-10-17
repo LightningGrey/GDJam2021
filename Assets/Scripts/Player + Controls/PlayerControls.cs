@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class PlayerControls : MonoBehaviour
@@ -16,6 +17,8 @@ public class PlayerControls : MonoBehaviour
     [Header("Variables")] 
     [SerializeField] private float _speed = 0.5f;
     [SerializeField] private int _drunkMode = 1;
+    private float drunkTimer = 20.0f;
+    
 
     private Vector2 _moveInput = Vector2.zero;
 
@@ -86,16 +89,37 @@ public class PlayerControls : MonoBehaviour
     }
 
 
+    void SetDrunk()
+    {
+        _drunkMode = -1;
+        StartCoroutine(DrunkMode());
+    }
+
+    IEnumerator DrunkMode()
+    {
+        for (float f = 0.0f; f < 1.0f; f += Time.deltaTime)
+        {
+            Debug.Log(f);
+            yield return new WaitForSeconds(.04f);
+        }
+
+        _drunkMode = 1;
+        StopCoroutine(DrunkMode());
+    }
+
+
     void OnEnable()
     {
         _playerKbMove.Keyboard.Enable();
         DialogueManager.enableEvent += ControlEnable;
+        OutlineChest.chestEvent += SetDrunk;
     }
 
     void OnDisable()
     {
         _playerKbMove.Keyboard.Disable();
         DialogueManager.enableEvent -= ControlEnable;
+        OutlineChest.chestEvent -= SetDrunk;
     }
 
 }

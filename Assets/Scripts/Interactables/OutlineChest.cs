@@ -7,6 +7,7 @@ public class OutlineChest : MonoBehaviour
 {
     public GameObject openChest;
     public GameObject item;
+    public static event Action chestEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class OutlineChest : MonoBehaviour
             openChest.SetActive(true);
             item.SetActive(true);
             this.gameObject.SetActive(false);
+            chestEvent?.Invoke();
         }
     }
+
 }
