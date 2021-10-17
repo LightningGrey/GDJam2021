@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SceneManager : MonoBehaviour
 {
@@ -30,5 +31,10 @@ public class SceneManager : MonoBehaviour
     {
         FadeToBlack();
         Debug.Log("End Game");
+    }
+
+    public void Restart()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Level Scene");
     }
 }

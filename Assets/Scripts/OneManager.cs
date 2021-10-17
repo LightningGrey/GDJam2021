@@ -47,6 +47,15 @@ public class OneManager : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();
+        if (DialogueManager.Instance.textBox.activeSelf)
+        {
+            Debug.Log("Trying to exti text");
+            DialogueManager.Instance.ExitText();
+        }
+        else
+        {
+            Debug.Log("Quiting");
+            Application.Quit();
+        }
     }
 }

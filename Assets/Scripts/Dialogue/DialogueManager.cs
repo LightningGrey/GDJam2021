@@ -98,10 +98,7 @@ public class DialogueManager : MonoBehaviour {
         }
         else
         {
-            lineIndex = 0;
-            textDisplay.text = "";
-            textBox.SetActive(false);
-            enableEvent?.Invoke();
+            ExitText();
         }
 
         nextButton.SetActive(false);
@@ -115,6 +112,15 @@ public class DialogueManager : MonoBehaviour {
         textBox.SetActive(true);
         StartCoroutine(Type());
         nextButton.SetActive(false);
+    }
+
+    public void ExitText()
+    {
+        lineIndex = 0;
+        textDisplay.text = "";
+        textBox.SetActive(false);
+        oneObject.SetActive(false);
+        enableEvent?.Invoke();
     }
 
     public void SetOnePosition(Vector2 pos)

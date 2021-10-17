@@ -12,6 +12,10 @@ public class InteractableObject : Interactable
     public bool hasOne;
     public Vector2 onePosition;
     public GameObject triggeredObject;
+    
+    //Reference resolution for one placement
+    float defaultHeight = 1080;
+    float defaultWidth = 1920;
 
 
     public bool getHasOne()
@@ -58,6 +62,10 @@ public class InteractableObject : Interactable
             //interactRange.gameObject.SetActive(false);
             if (hasOne)
             {
+                onePosition.x = onePosition.x * (Screen.width / defaultWidth);
+                onePosition.y = onePosition.y * (Screen.height / defaultHeight);
+                defaultWidth = Screen.width;
+                defaultHeight = Screen.height;
                 DialogueManager.Instance.SetOnePosition(onePosition);
             }
 
