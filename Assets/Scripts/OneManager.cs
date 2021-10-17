@@ -21,6 +21,7 @@ public class OneManager : MonoBehaviour
         }
 
         controls = new Controls();
+        controls.Always.Enable();
     }
 
     private void Start()

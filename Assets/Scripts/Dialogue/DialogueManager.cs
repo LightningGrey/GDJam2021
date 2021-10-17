@@ -60,13 +60,15 @@ public class DialogueManager : MonoBehaviour {
     }
 
     IEnumerator Type() {
-        if (script[lineIndex].speaker != "") {
+        if (script[lineIndex].speaker != "")
+        {
             namePlate.SetActive(true);
             nameDisplay.text = script[lineIndex].speaker;
         }
         else
             namePlate.SetActive(false);
-        foreach (char letter in script[lineIndex].line.ToCharArray()) {
+        foreach (char letter in script[lineIndex].line.ToCharArray())
+        {
             if (letter != ' ')
                 audioSource.PlayOneShot(sfx, volume);
             if (letter == '1')
@@ -120,6 +122,7 @@ public class DialogueManager : MonoBehaviour {
         textDisplay.text = "";
         textBox.SetActive(false);
         oneObject.SetActive(false);
+        StopAllCoroutines();
         enableEvent?.Invoke();
     }
 

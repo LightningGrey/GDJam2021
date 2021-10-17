@@ -21220,12 +21220,22 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 39e8fbc5908ee1740a404af7582e9bfc, type: 3}
     - target: {fileID: 612813892966719262, guid: 9308fc720fbde9a4daff64cf61527128,
         type: 3}
+      propertyPath: script.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 612813892966719262, guid: 9308fc720fbde9a4daff64cf61527128,
+        type: 3}
       propertyPath: script.Array.data[0].line
-      value: '''luw'''
+      value: '''Attack Damage Carry'''
       objectReference: {fileID: 0}
     - target: {fileID: 612813892966719262, guid: 9308fc720fbde9a4daff64cf61527128,
         type: 3}
       propertyPath: script.Array.data[1].line
+      value: '''lol'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 612813892966719262, guid: 9308fc720fbde9a4daff64cf61527128,
+        type: 3}
+      propertyPath: script.Array.data[2].line
       value: '- Jonah'
       objectReference: {fileID: 0}
     - target: {fileID: 612813892966719262, guid: 9308fc720fbde9a4daff64cf61527128,
