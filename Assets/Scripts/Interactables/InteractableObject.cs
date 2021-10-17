@@ -62,6 +62,8 @@ public class InteractableObject : Interactable
             //interactRange.gameObject.SetActive(false);
             if (hasOne)
             {
+                Debug.Log(Screen.height);
+                Debug.Log(defaultHeight);
                 onePosition.x = onePosition.x * (Screen.width / defaultWidth);
                 onePosition.y = onePosition.y * (Screen.height / defaultHeight);
                 defaultWidth = Screen.width;
